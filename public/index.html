@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Emi test page</title>
+  </head>
+  <body>
+    <input id="input_name" type="text" />
+  </body>
+  <script>
+    var message = 'hello';
+    document.getElementById('input_name').value = message;
+    fetch('https://localhost:8000/api/test', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((success) => {
+        console.log(success.json().then((response) => console.log(response)));
+      })
+      .catch((err) => console.log(err));
+  </script>
+</html>
